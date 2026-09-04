@@ -1,0 +1,15 @@
+{
+  "name": "http-client-web",
+  "version": "1.0.0",
+  "description": "Group Project 1 - Part 1: HTTP Client (web version, deployable on Render)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
