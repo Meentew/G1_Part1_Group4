@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HTTP Client — Part 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">
+      <span class="dot" id="statusDot"></span>
+      <h1>HTTP Client</h1>
+    </div>
+    <span class="topbar-sub">Group Project 1 — ส่วนที่ 1</span>
+  </header>
+
+  <main class="layout">
+    <section class="request-panel" aria-label="Request builder">
+      <div class="field">
+        <label for="host">Server IP / Host</label>
+        <input id="host" type="text" value="example.com" spellcheck="false" />
+      </div>
+
+      <div class="field field-row">
+        <div class="protocol-toggle" role="radiogroup" aria-label="Protocol">
+          <button type="button" class="proto-btn active" data-value="http">HTTP</button>
+          <button type="button" class="proto-btn" data-value="https">HTTPS</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="uri">URI</label>
+        <input id="uri" type="text" value="/" spellcheck="false" />
+      </div>
+
+      <button id="sendBtn" class="send-btn">
+        <span class="send-label">Send Request</span>
+        <span class="spinner" id="spinner" hidden></span>
+      </button>
+
+      <div class="url-preview" id="urlPreview">http://example.com/</div>
+      <div class="status-line" id="statusLine">พร้อมส่งคำขอ</div>
+      <a class="part2-btn" href="https://blackbara-001-site1.itempurl.com/Login.aspx" target="_blank" rel="noopener noreferrer">กลับไปหน้าแรก</a>
+    </section>
+
+    <section class="response-panel" aria-label="Response viewer">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="text" role="tab" aria-selected="true">Text</button>
+        <button class="tab" data-tab="hex" role="tab" aria-selected="false">Hexadecimal</button>
+        <button class="tab" data-tab="browser" role="tab" aria-selected="false">Web Browser</button>
+      </div>
+
+      <div class="tab-panels">
+        <div class="tab-panel active" id="panel-text">
+          <pre id="textOutput" class="mono-output">ยังไม่มีข้อมูล — กด Send Request</pre>
+        </div>
+        <div class="tab-panel" id="panel-hex">
+          <pre id="hexOutput" class="mono-output">ยังไม่มีข้อมูล — กด Send Request</pre>
+        </div>
+        <div class="tab-panel" id="panel-browser">
+          <iframe id="browserFrame" title="Rendered HTML response" sandbox=""></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
